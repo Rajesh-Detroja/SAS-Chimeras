@@ -33,8 +33,6 @@ sambamba view -t 25 -S -F "not unmapped and mapping_quality >= 10" -f bam -o inp
 
 Here,
 
-**sambamba view =** Tool used to convert SAM to BAM format
-
-**-F "not unmapped and mapping_quality >= 10"**
+**sambamba view** tool were used to remove low-quality mapped reads with MAPQ < 10 and to convert SAM to BAM format of high-quality mapped reads
 
 
