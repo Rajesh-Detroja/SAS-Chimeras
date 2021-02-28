@@ -8,7 +8,7 @@
 bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 input.R1.fastq -2 input.R1.fastq | grep -v -e "chr" -e "HLA" -e "ENST" > input.chimera.sam
 ```
 
-Where, 
+Here,
 
 **bowtie2 --local** = Mapping algorithm used
 
@@ -25,11 +25,16 @@ Finally, **Step 1** will generate a SAM file containing reads mapped to the huma
 
 <br></br>
 
-#### Step 2: Filter low-quality mapped reads and convert SAM file to BAM file
+#### Step 2: Remove low-quality mapped reads and convert SAM file to BAM file
 
 ```bash
 sambamba view -t 25 -S -F "not unmapped and mapping_quality >= 10" -f bam -o input.chimera.bam input.chimera.sam
 ```
 
+Here,
+
+**sambamba view =** Tool used to convert SAM to BAM format
+
+**-F "not unmapped and mapping_quality >= 10"**
 
 
