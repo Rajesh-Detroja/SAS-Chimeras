@@ -20,4 +20,13 @@ Where,
 **-2 input.R2.fastq** = reverse sequencing reads
 
 
-**Results of Step 1 =** Step 1 will generate a SAM files containing reads mapped to the human Sense-Antisense (SAS) chimeric sequences.
+Finally, **Step 1** will generate a SAM file containing reads mapped to the human Sense-Antisense (SAS) chimeric sequences.
+
+#### Step 2: Filter low-quality mapped reads and convert SAM file to BAM file
+
+```bash
+sambamba view -t 25 -S -F "not unmapped and mapping_quality >= 10" -f bam -o input.chimera.bam input.chimera.sam
+```
+
+
+
