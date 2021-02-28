@@ -1,10 +1,6 @@
 ### Following bioinformatic protocol have been developed to identify human Sense-Antisense (SAS) chimeric sequences from RNA-Seq data
 
-<br></br>
-
 ![](https://github.com/Rajesh-Detroja/SAS-Chimeras/blob/main/Workflow_Paper_1.png)
-
-<br></br>
 
 #### Step 1: Mapping RNA-Seq reads to the database of human genome + human transcriptome + human SAS chimeras
 
