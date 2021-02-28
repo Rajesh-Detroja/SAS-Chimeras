@@ -4,7 +4,7 @@
 #### Step 1: Mapping RNA-Seq reads to the database of human genome + human transcriptome + human SAS chimeras
 
 ```bash
-bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 input.R1.fastq -2 input.R1.fastq
+bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 input.R1.fastq -2 input.R1.fastq | grep -v -e "chr" -e "HLA" -e "ENST" > input.chimera.sam
 ```
 
 Where, 
@@ -20,3 +20,4 @@ Where,
 **-2 input.R2.fastq** = reverse sequencing reads
 
 
+**Results of Step 1 =** Step 1 will generate a SAM files containing reads mapped to the human Sense-Antisense (SAS) chimeric sequences.
