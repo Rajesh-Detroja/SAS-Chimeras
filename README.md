@@ -5,7 +5,7 @@
 #### Step 1: Mapping RNA-Seq reads to the database of human genome + human transcriptome + human SAS chimeras
 
 ```bash
-bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 sample.R1.fastq -2 sample.R2.fastq | grep -v -e "chr" -e "HLA" -e "ENST" > sample.chimera.sam
+bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 sample.R1.fastq -2 sample.R2.fastq | grep -v -e "chr" -e "ENST" > sample.chimera.sam
 ```
 
 Here,
@@ -80,5 +80,19 @@ here,
 #### Step 6: Finally identify candidate SAS chimeras, If at-least 5 reads must be covered the given junction region of SAS chimeras
 
 ```bash
-awk -v depth=5 '($7 >= 1 && $4 >= depth)' sample.chimera.bed | awk 'BEGIN { OFS="\t"; print "chimera", "start", "end", "depth", "covered_bp", "Junction_length", "coverage" } { print $0, "" }
+awk -v depth=5 '($7 >= 1 && $4 >= depth)' sample.chimera.bed | awk 'BEGIN { OFS="\t"; print "chimera", "start", "end", "depth", "covered_bp", "Junction_length", "coverage" } { print $0, "" } > sample.SAS.chimeras.tsv
 ```
+
+<br></br>
+
+#### Resource:
+
++ [Human Reference Genome](http://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/)
+
++ [Human Reference Transcriptome](http://ftp.ensembl.org/pub/release-103/fasta/homo_sapiens/cdna/Homo_sapiens.GRCh38.cdna.all.fa.gz)
+
++ [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+
++ [sambamba](https://lomereiter.github.io/sambamba/)
+
++ [bedtools](https://bedtools.readthedocs.io/en/latest/)
