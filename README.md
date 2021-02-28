@@ -22,6 +22,8 @@ Where,
 
 Finally, **Step 1** will generate a SAM file containing reads mapped to the human Sense-Antisense (SAS) chimeric sequences.
 
+
+
 #### Step 2: Filter low-quality mapped reads and convert SAM file to BAM file
 
 ```bash
