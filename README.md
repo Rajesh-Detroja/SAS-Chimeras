@@ -5,7 +5,7 @@
 #### Step 1: Mapping RNA-Seq reads to the database of human genome + human transcriptome + human SAS chimeras
 
 ```bash
-bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 sample.R1.fastq -2 sample.R1.fastq | grep -v -e "chr" -e "HLA" -e "ENST" > sample.chimera.sam
+bowtie2 --local -p 25 -x SAS_chimera_db.fa -1 sample.R1.fastq -2 sample.R2.fastq | grep -v -e "chr" -e "HLA" -e "ENST" > sample.chimera.sam
 ```
 
 Here,
