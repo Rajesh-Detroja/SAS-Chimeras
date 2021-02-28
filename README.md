@@ -60,4 +60,25 @@ Here,
 
 **sambamba index** tool were used to index sorted BAM file.
 
+<br></br>
 
+#### Step 5: Calculate SAS chimeras with mapped reads at junction region
+
+```bash
+bedtools coverage -f 1.00 -a SAS_chimera_db.bed -b sample.chimera.sorted.bam > sample.chimera.bed
+```
+
+here,
+
+**bedtools coverage** tool were used to calculate SAS chimeras with mapped reads at junction region
+
+**-a SAS_chimera_db.bed** Given junction regions of SAS chimeras
+
+
+<br></br>
+
+#### Step 6: Finally identify candidate SAS chimeras, If at-least 5 reads must be covered the given junction region of SAS chimeras
+
+```bash
+awk -v depth=5 '($7 >= 1 && $4 >= depth)' sample.chimera.bed | awk 'BEGIN { OFS="\t"; print "chimera", "start", "end", "depth", "covered_bp", "Junction_length", "coverage" } { print $0, "" }
+```
