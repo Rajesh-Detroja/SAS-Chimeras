@@ -85,7 +85,7 @@ awk -v depth=5 '($7 >= 1 && $4 >= depth)' sample.chimera.bed | awk 'BEGIN { OFS=
 
 <br></br>
 
-#### Resource:
+#### Resources:
 
 + [Human Reference Genome](http://hgdownload.soe.ucsc.edu/goldenPath/hg38/chromosomes/)
 
@@ -96,3 +96,5 @@ awk -v depth=5 '($7 >= 1 && $4 >= depth)' sample.chimera.bed | awk 'BEGIN { OFS=
 + [sambamba](https://lomereiter.github.io/sambamba/)
 
 + [bedtools](https://bedtools.readthedocs.io/en/latest/)
+
++ [ChiTaRS 5.0](http://chitars.md.biu.ac.il/bin/search.pl)
